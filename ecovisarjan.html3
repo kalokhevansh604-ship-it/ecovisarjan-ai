@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>EcoVisarjan AI</title>
+<style>
+body{margin:0;font-family:Arial;background:#0b1020;color:white}
+header{position:fixed;top:0;width:100%;background:#111827;padding:15px 30px;z-index:1000}
+nav{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;text-decoration:none;margin-left:18px}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(135deg,#0ea5e9,#14b8a6)}
+.hero h1{font-size:60px;margin:0}
+.hero p{max-width:700px;font-size:20px}
+.btn{background:white;color:#0b1020;padding:14px 24px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px}
+.section{max-width:1100px;margin:auto;padding:80px 20px}
+.section h2{text-align:center;font-size:38px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:#111827;padding:25px;border-radius:18px}
+.card h3{color:#5eead4}
+.metric{background:#0f172a;padding:22px;border-radius:18px;text-align:center}
+.metric h1{font-size:42px;color:#5eead4;margin:10px 0}
+.map-box{background:#111827;border-radius:20px;overflow:hidden}
+iframe{width:100%;height:360px;border:none}
+.status{display:inline-block;background:#052e16;color:#86efac;padding:8px 14px;border-radius:999px;font-weight:bold}
+.timeline{border-left:3px solid #14b8a6;padding-left:20px}
+.timeline div{margin-bottom:22px}
+.chart{height:180px;background:#111827;border-radius:18px;padding:20px;display:flex;align-items:flex-end;gap:12px}
+.bar{flex:1;background:linear-gradient(180deg,#14b8a6,#0ea5e9);border-radius:10px 10px 0 0}
+.qr{display:flex;justify-content:center}
+.qr div{width:180px;height:180px;background:white;color:black;display:flex;align-items:center;justify-content:center;font-weight:bold;border-radius:18px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+input,textarea{width:100%;padding:12px;border-radius:12px;border:none;background:#0f172a;color:white;margin-top:10px}
+button{background:#14b8a6;color:#041214;border:none;padding:14px;border-radius:12px;font-weight:bold;margin-top:15px;width:100%}
+footer{text-align:center;padding:30px;background:#111827;color:#9ca3af}
+@media(max-width:700px){.hero h1{font-size:42px}.contact{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<h2 style='color:#5eead4'>EcoVisarjan AI</h2>
+<div>
+<a href='#features'>Features</a>
+<a href='#dashboard'>Dashboard</a>
+<a href='#map'>Map</a>
+<a href='#process'>Process</a>
+<a href='#contact'>Contact</a>
+</div>
+</nav>
+</header>
+
+<section class='hero'>
+<h1>EcoVisarjan AI</h1>
+<p>AI-powered eco-friendly Ganpati Visarjan system with live crowd monitoring, smart navigation, water-quality tracking, and sustainable waste management for Pune.</p>
+<a class='btn' href='#dashboard'>Open Live Dashboard</a>
+</section>
+
+<section class='section' id='features'>
+<h2>Smart Features</h2>
+<div class='grid'>
+<div class='card'><h3>🤖 AI Crowd Control</h3><p>Guides devotees to less crowded visarjan points automatically.</p></div>
+<div class='card'><h3>💧 Water Sensors</h3><p>Monitors pH, turbidity, and pollution levels in real time.</p></div>
+<div class='card'><h3>♻️ Waste Collection</h3><p>Separates flowers, plastic, and decorations for recycling.</p></div>
+<div class='card'><h3>📊 Live Dashboard</h3><p>Displays real-time environmental and crowd analytics.</p></div>
+</div>
+</section>
+
+<section class='section' id='dashboard'>
+<h2>Live Monitoring Dashboard</h2>
+<div class='grid'>
+<div class='metric'><div>People Present</div><h1 id='present'>247</h1><div class='status'>LIVE</div></div>
+<div class='metric'><div>People in Queue</div><h1 id='queue'>38</h1><div class='status'>MODERATE</div></div>
+<div class='metric'><div>Parking Available</div><h1 id='parking'>112</h1><div class='status'>AVAILABLE</div></div>
+<div class='metric'><div>Wait Time</div><h1 id='wait'>12m</h1><div class='status'>SHORT</div></div>
+</div>
+</section>
+
+<section class='section'>
+<h2>AI Prediction</h2>
+<div class='grid'>
+<div class='card'><h3>Next 30 Minutes</h3><p>Crowd expected to increase by 18%.</p></div>
+<div class='card'><h3>Recommended Tank</h3><p><b>Tank B2</b> is currently the fastest option.</p></div>
+<div class='card'><h3>Water Quality</h3><p>Excellent • pH 7.1 • Safe for eco-visarjan.</p></div>
+</div>
+</section>
+
+<section class='section'>
+<h2>Crowd Trend</h2>
+<div class='chart'>
+<div class='bar' style='height:40%'></div>
+<div class='bar' style='height:55%'></div>
+<div class='bar' style='height:72%'></div>
+<div class='bar' style='height:88%'></div>
+<div class='bar' style='height:76%'></div>
+<div class='bar' style='height:62%'></div>
+<div class='bar' style='height:50%'></div>
+</div>
+</section>
+
+<section class='section' id='map'>
+<h2>Live Visarjan Navigation</h2>
+<div class='map-box'>
+<iframe src='https://www.google.com/maps?q=Sarasbaug+Ganpati+Pune&output=embed'></iframe>
+</div>
+<div class='grid' style='margin-top:20px'>
+<div class='metric'><div>Nearest Center</div><h1>Sarasbaug</h1></div>
+<div class='metric'><div>Open Tanks</div><h1>4</h1></div>
+<div class='metric'><div>Emergency</div><h1>108</h1></div>
+</div>
+<div style='text-align:center;margin-top:25px'>
+<a class='btn' href='https://www.google.com/maps/search/?api=1&query=Sarasbaug+Ganpati+Pune' target='_blank'>🚗 Get Directions</a>
+</div>
+</section>
+
+<section class='section' id='process'>
+<h2>How It Works</h2>
+<div class='timeline'>
+<div><h3>1. Registration</h3><p>Devotees join the smart queue through the app or kiosk.</p></div>
+<div><h3>2. AI Allocation</h3><p>System assigns the best available visarjan tank.</p></div>
+<div><h3>3. Sensor Monitoring</h3><p>Water quality is checked continuously during immersion.</p></div>
+<div><h3>4. Waste Processing</h3><p>Flowers and decorations are collected for composting and recycling.</p></div>
+</div>
+</section>
+
+<section class='section'>
+<h2>Scan for Quick Access</h2>
+<div class='qr'>
+<div>QR CODE</div>
+</div>
+<p style='text-align:center;color:#9ca3af;margin-top:12px'>Scan to open live directions and queue status.</p>
+</section>
+
+<section class='section' id='contact'>
+<h2>Contact & Emergency</h2>
+<div class='contact'>
+<div class='card'>
+<h3>Send Feedback</h3>
+<input placeholder='Your Name'>
+<input placeholder='Your Email'>
+<textarea rows='5' placeholder='Your Message'></textarea>
+<button>Send Message</button>
+</div>
+<div class='card'>
+<h3>Support Information</h3>
+<p>📍 Pune Smart Visarjan Cell</p>
+<p>📞 108 (Emergency)</p>
+<p>📞 020-1000-2026</p>
+<p>🌐 ecovisarjan-ai.vercel.app</p>
+<p>🕒 Last updated: <span id='clock'>--:--:--</span></p>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 EcoVisarjan AI • Developed by Team EcoTech • Pune, Maharashtra
+</footer>
+
+<script>
+function updateData(){
+  document.getElementById('present').innerText = 180 + Math.floor(Math.random()*140);
+  document.getElementById('queue').innerText = 15 + Math.floor(Math.random()*55);
+  document.getElementById('parking').innerText = 70 + Math.floor(Math.random()*80);
+  document.getElementById('wait').innerText = (5 + Math.floor(Math.random()*18)) + 'm';
+}
+setInterval(updateData,3000);
+updateData();
+
+function updateClock(){
+  document.getElementById('clock').innerText =
+    new Date().toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
