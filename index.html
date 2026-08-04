@@ -589,6 +589,145 @@ setInterval(()=>{
   document.getElementById('waste').innerText = (300 + Math.floor(Math.random()*80)) + 'kg';
 },3000);
 </script>
+<!-- REAL-TIME SMART VISARJAN MAP -->
+<section class='section' id='map'>
 
+  <h2 class='section-title'>Live Visarjan Navigation</h2>
+
+  <p class='section-sub'>
+    Real-time crowd monitoring and smart guidance for eco-friendly visarjan in Pune.
+  </p>
+
+  <div class='map-card'>
+
+    <iframe
+      src='https://www.google.com/maps?q=Sarasbaug+Ganpati+Pune&output=embed'
+      allowfullscreen=''
+      loading='lazy'>
+    </iframe>
+
+    <div class='map-info'>
+
+      <div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;'>
+
+        <div>
+          <h3>📍 Sarasbaug Eco Visarjan Center</h3>
+          <p>Pune, Maharashtra</p>
+        </div>
+
+        <div style='background:#0b1020;padding:10px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.08);'>
+          <span id='status' style='color:#86efac;font-weight:700;'>● OPEN</span>
+        </div>
+
+      </div>
+
+      <div class='dashboard-grid' style='margin-top:22px;'>
+
+        <div class='metric'>
+          <small>People Present</small>
+          <h3 id='present'>247</h3>
+          <div class='bar'><span id='presentBar' style='width:62%'></span></div>
+        </div>
+
+        <div class='metric'>
+          <small>People in Queue</small>
+          <h3 id='queue'>38</h3>
+          <div class='bar'><span id='queueBar' style='width:38%'></span></div>
+        </div>
+
+        <div class='metric'>
+          <small>Parking Available</small>
+          <h3 id='parking'>112</h3>
+          <div class='bar'><span id='parkingBar' style='width:74%'></span></div>
+        </div>
+
+        <div class='metric'>
+          <small>Estimated Wait</small>
+          <h3 id='wait'>12 min</h3>
+          <div class='bar'><span id='waitBar' style='width:28%'></span></div>
+        </div>
+
+      </div>
+
+      <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px;'>
+
+        <div style='background:#0b1020;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;'>
+          <div style='color:#9ca3af;font-size:14px;'>Next Available Tank</div>
+          <div id='tank' style='font-size:26px;font-weight:800;margin-top:6px;'>Tank B2</div>
+          <div style='color:#86efac;font-size:14px;margin-top:4px;'>Ready in 3 min</div>
+        </div>
+
+        <div style='background:#0b1020;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;'>
+          <div style='color:#9ca3af;font-size:14px;'>Water Quality</div>
+          <div id='quality' style='font-size:26px;font-weight:800;margin-top:6px;'>Excellent</div>
+          <div style='color:#5eead4;font-size:14px;margin-top:4px;'>pH 7.1 • Safe</div>
+        </div>
+
+      </div>
+
+      <div style='display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;'>
+
+        <a class='btn btn-primary'
+           href='https://www.google.com/maps/search/?api=1&query=Sarasbaug+Ganpati+Pune'
+           target='_blank'>
+           🚗 Get Directions
+        </a>
+
+        <a class='btn btn-secondary'
+           href='#dashboard'>
+           📊 View Dashboard
+        </a>
+
+      </div>
+
+      <p style='margin-top:18px;color:#9ca3af;font-size:14px;'>
+        Last updated: <span id='updated'>Just now</span>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<script>
+const statuses = [
+  { text: '● OPEN', color: '#86efac' },
+  { text: '● BUSY', color: '#fbbf24' },
+  { text: '● OPEN', color: '#86efac' }
+];
+
+const tanks = ['Tank A1', 'Tank B2', 'Tank C3', 'Tank D1'];
+const qualities = ['Excellent', 'Good', 'Excellent', 'Good'];
+
+function updateMapData() {
+  const present = 180 + Math.floor(Math.random() * 140);
+  const queue = 15 + Math.floor(Math.random() * 55);
+  const parking = 70 + Math.floor(Math.random() * 80);
+  const wait = 5 + Math.floor(Math.random() * 18);
+
+  document.getElementById('present').innerText = present;
+  document.getElementById('queue').innerText = queue;
+  document.getElementById('parking').innerText = parking;
+  document.getElementById('wait').innerText = wait + ' min';
+
+  document.getElementById('presentBar').style.width = Math.min(100, present / 4) + '%';
+  document.getElementById('queueBar').style.width = Math.min(100, queue * 1.2) + '%';
+  document.getElementById('parkingBar').style.width = Math.min(100, parking) + '%';
+  document.getElementById('waitBar').style.width = Math.min(100, wait * 4) + '%';
+
+  const s = statuses[Math.floor(Math.random() * statuses.length)];
+  const statusEl = document.getElementById('status');
+  statusEl.innerText = s.text;
+  statusEl.style.color = s.color;
+
+  document.getElementById('tank').innerText = tanks[Math.floor(Math.random() * tanks.length)];
+  document.getElementById('quality').innerText = qualities[Math.floor(Math.random() * qualities.length)];
+
+  document.getElementById('updated').innerText =
+    new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+}
+
+updateMapData();
+setInterval(updateMapData, 3000);
+</script>
 </body>
 </html>
